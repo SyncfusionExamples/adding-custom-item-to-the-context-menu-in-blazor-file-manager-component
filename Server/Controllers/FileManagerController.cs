@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Syncfusion.EJ2.FileManager.Base;
+
 using Syncfusion.EJ2.FileManager.PhysicalFileProvider;
 
-namespace MyBlazorApp.Server.Controllers
+namespace AddCustomItemToContextMenu.Server.Controllers
 {
     [Route("api/[controller]")]
     public class FileManagerController : Controller

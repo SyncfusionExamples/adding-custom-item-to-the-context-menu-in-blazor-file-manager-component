@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using Syncfusion.Blazor.FileManager
 
 
 <SfFileManager TValue="FileManagerDirectoryContent" View="ViewType.Details">
@@ -11,12 +10,12 @@
     <FileManagerContextMenuSettings Folder="@Items"
                                     Layout="@Items"
                                     File="@Items"></FileManagerContextMenuSettings>
-    <FileManagerEvents TValue="FileManagerDirectoryContent" 
+    <FileManagerEvents TValue="FileManagerDirectoryContent"
                        MenuOpened="MenuOpened"
                        OnMenuClick="MenuClick"></FileManagerEvents>
 </SfFileManager>
 
-@code{
+@code {
     public string[] Items { get; set; } = new string[] { "Open", "Details", "Undo" };
 
     public void MenuOpened(MenuOpenEventArgs<FileManagerDirectoryContent> args)
