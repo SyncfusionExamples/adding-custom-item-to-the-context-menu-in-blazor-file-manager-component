@@ -1,73 +1,75 @@
 # Adding Custom Item to the Context Menu in Blazor File Manager Component
 
-**Repository Description**  
-This repository contains a **Blazor sample project** that demonstrates how to **add a custom item to the context menu** in the Syncfusion **Blazor File Manager** component.
+## Overview
+ 
+This sample demonstrates how to customize the Syncfusion [Blazor File Manager](https://www.syncfusion.com/blazor-components/blazor-file-manager) by adding a custom item to the component's context menu. The example shows how to define a custom command, display a custom icon, and respond to user actions when the custom menu item is selected.
+ 
+Context menu customization is useful when an application needs file-management actions that are specific to business workflows. By extending the File Manager's built-in context menu, developers can provide additional commands while preserving the familiar file browsing experience.
 
-The sample shows how to define a custom context menu item, assign an icon, and handle click events to perform custom actions within the File Manager interface.
+## Key Features
 
-## Project Overview
-The purpose of this project is to help developers understand how to extend the functionality of the Syncfusion Blazor File Manager by customizing its context menu. It provides a quick‑start example of adding user‑defined menu actions to improve interaction and usability.
-
-## Features
-- Integration of **Syncfusion Blazor File Manager**
-- Add a custom item to the File Manager context menu
-- Assign custom icons to context menu items
-- Handle click operations for custom menu actions
-- Blazor‑based implementation with clean extensibility
+- Uses the Syncfusion Blazor File Manager component in Details view mode through the `View="ViewType.Details"` configuration.
+- Connects the File Manager to ASP.NET Core backend services using `FileManagerAjaxSettings`.
+- Configures File Manager endpoints for file operations, upload, download, and image retrieval.
+- Customizes the File Manager context menu using `FileManagerContextMenuSettings`.
+- Adds a custom context menu item (`Undo`) alongside built-in menu commands (`Open` and `Details`) for files, folders, and layout areas.
+- Handles the `MenuOpened` event to dynamically modify context menu items before rendering.
+- Assigns a custom icon (`oi oi-action-undo`) to the custom context menu item at runtime.
+- Handles custom context menu interactions through the `OnMenuClick` event.
+- Demonstrates custom command execution by detecting and processing clicks on the `Undo` menu item.
+- Implements a server-side file system provider using `PhysicalFileProvider`.
+- Supports File Manager CRUD operations including read, create, rename, delete, copy, move, search, and details retrieval.
+- Provides file upload, file download, and image thumbnail retrieval endpoints for File Manager integration.
+- Uses a physical file storage location (`Data\Files`) as the File Manager root directory.
 
 ## Prerequisites
-Ensure the following requirements are met before running this project:
-- Visual Studio 2022  
-- .NET SDK compatible with Blazor  
-- Syncfusion Blazor packages  
-- Valid Syncfusion license key (if required)
+ 
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-## How to run the sample
-1. Download or clone this repository to your local machine.
-2. Open the solution file using **Visual Studio 2022**.
-3. Restore the NuGet packages by rebuilding the solution.
-4. After restoring all dependencies, run the project from Visual Studio.  
-5. The Blazor application starts and displays the Syncfusion File Manager with a customized context menu.
+## How to Run the Project
+ 
+**Visual Studio 2022**
+ 
+1. Clone or download this repository.
+2. Open `AddCustomItemToContextMenu.sln`.
+3. Restore NuGet packages if prompted.
+4. Ensure the startup project is `AddCustomItemToContextMenu.Server`.
+5. Build the solution.
+6. Run the application using `Ctrl+F5`.
+ 
+**Visual Studio Code**
+ 
+1. Open the repository folder in Visual Studio Code.
+2. Navigate to the repository root that contains `AddCustomItemToContextMenu.sln`.
+3. Restore packages:
+ 
+```bash
+dotnet restore
+```
+ 
+4. Run the hosted application:
+ 
+```bash
+dotnet run --project Server/AddCustomItemToContextMenu.Server.csproj
+```
+ 
+5. Open the URL displayed in the console output.
 
-## Usage
-Once the application is running:
-- Right‑click on files or folders in the File Manager.
-- Observe the custom context menu item added to the menu.
-- Click the custom item to trigger the associated action.
+## Project Structure
 
-This approach is useful for adding application‑specific commands to the File Manager.
+`Client/Pages/Index.razor` - Main sample page that hosts the Syncfusion Blazor File Manager, configures custom context menu items, assigns a custom icon in the `MenuOpened` event, and handles custom menu actions through the `OnMenuClick` event.
 
-## Configuration
-Context menu customization is configured within the Blazor application by:
-- Defining custom context menu items
-- Assigning icons to menu entries
-- Handling context menu click events for custom logic
+`Server/Controllers/FileManagerController.cs` - ASP.NET Core API controller that provides File Manager backend services including file operations, upload, download, image retrieval, and physical file system access.
 
-## Examples
-- Custom context menu item in Blazor File Manager
-- Handling menu click events
-- Extending File Manager UI behavior
+`Server/Data/Files/` - Physical root folder configured through `PhysicalFileProvider.RootFolder()` and used as the File Manager's storage location.
 
-## Documentation
-- **General Syncfusion documentation:**  
-  https://help.syncfusion.com/
-- **Blazor Introduction:**  
-  https://blazor.syncfusion.com/documentation/introduction
-- **Blazor File Manager – Getting Started:**  
-  https://blazor.syncfusion.com/documentation/file-manager/getting-started-with-web-app
+## Support and Feedback
 
-## Additional Resources
-- How‑to guide for adding custom context menu items:  
-  https://blazor.syncfusion.com/documentation/file-manager/how-to/adding-custom-item-to-context-menu
-- Online File Manager demo:  
-  https://blazor.syncfusion.com/demos/file-manager/overview
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Refer to the official documentation for adding custom context menu items in Blazor File Manager: https://help.syncfusion.com/file-manager-sdk/blazor/how-to/adding-custom-item-to-context-menu
 
-## Troubleshooting
-- Ensure the Syncfusion license key is registered correctly.
-- Verify that the custom context menu item configuration is loaded.
-- Rebuild the solution if UI changes are not reflected.
-- Check browser console logs for runtime issues.
+## License
 
-## Support
-For detailed API references, UI customization guidance, and advanced Blazor File Manager scenarios, refer to the Syncfusion Blazor documentation links provided above.
-To get more help, check the [ASP.NET Core Blazor documentation](https://docs.microsoft.com/en-us/aspnet/core/blazor).
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
